@@ -5,6 +5,9 @@ import numpy as np
 from scipy.stats import kurtosis, skew
 
 def plotting(x, activation = None, normalization = None, plot = True, **kwargs):
+
+# TODO design this so that the actual scaling pipeline is similar to that of the plotting
+# You struggle with separating values and it takes your time
     """
     Function to plot distributions for x depending on the type of normalization (transformation)
     and activation applied.

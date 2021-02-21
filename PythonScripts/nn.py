@@ -3,14 +3,11 @@
 from tensorflow.keras import Input, Model
 from tensorflow.keras.layers import BatchNormalization, Dense
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.activations import elu, relu
-from tensorflow.keras.layers import Activation
-from tensorflow.keras.initializers import Constant
 from sklearn.model_selection import KFold
-
 from time import time
 import numpy as np
 import matplotlib.pyplot as plt
+
 def nn(X, y):
     print(X.shape)
 
@@ -42,6 +39,39 @@ def nn(X, y):
 
 
 def cross_validate(X,y,K = 5, **kwargs):
+    """
+    function to cross validate a neural network model
+
+    Dependencies:
+    -------------
+
+    from sklearn.model_selection import KFold
+    import numpy as np
+
+    Parameters:
+    -----------
+
+    X : np.array OR pd.DataFrame
+        the X data
+
+    y : np.array OR pd.DataFrame OR pd.Series
+        the target variable
+
+    K : int
+        number of folds, defualts to 5 (80-20 data split)
+
+    **kwargs:
+        kwargs for model.fit keras
+
+
+    Return:
+    -------
+
+    scores : list[*float]
+        list containing evaluation scores for the model
+
+    histories : not sure of exact outout
+    """
     scores = []
     histories = []
     for train, test in KFold(n_splits=K, shuffle=True).split(X,y):
@@ -58,6 +88,18 @@ def cross_validate(X,y,K = 5, **kwargs):
     return scores, histories
 
 def plot_histories(histories, metrics = ['loss', 'accuracy', 'val_accuracy','val_loss']):
+    """
+    function to plot the histories of a neural network model
+
+    histories :
+
+    metrics : [str, str, str, str]
+        metrics to plot
+
+    Returns:
+    --------
+    None
+    """
     fig, axes = plt.subplots(nrows = (len(metrics) - 1) // 2 + 1, ncols = 2, figsize = (16,16))
     axes = axes.reshape((len(metrics) - 1) // 2 + 1, 2)
     for i,metric in enumerate(metrics):

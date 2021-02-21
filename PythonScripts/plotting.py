@@ -1,3 +1,9 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+from scipy.stats import kurtosis, skew
+
 def plotting(x, activation = None, normalization = None, plot = True, **kwargs):
     """
     Function to plot distributions for x depending on the type of normalization (transformation)
@@ -9,6 +15,8 @@ def plotting(x, activation = None, normalization = None, plot = True, **kwargs):
     import matplotlib.pyplot as plt
     import seaborn as sns
     import pandas as pd
+    import numpy as np
+    from scipy.stats import kurtosis, skew
 
     Parameters:
     -----------

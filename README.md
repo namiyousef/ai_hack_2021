@@ -1,5 +1,9 @@
 # ai_hack_2021
 
+Link to website: https://namiyousef.github.io/ai_hack_2021/
+
+Link to blogpost: https://techcommunity.microsoft.com/t5/educator-developer-blog/mech-eng-defectors-a-hackathon-story-ai-hack-2021/ba-p/2178670
+
 ## Project Abstract
 
 The Boston Housing Market dataset is ubiquitous but imperfect: with
